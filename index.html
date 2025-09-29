@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevClick - Sua Presença Digital Começa Aqui</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(135deg, #0066cc 0%, #004999 100%);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.8;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #0066cc 0%, #004999 100%);
+            color: white;
+            padding: 150px 2rem 100px;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+            animation: fadeInUp 1s ease 0.2s backwards;
+        }
+
+        .cta-button {
+            background: white;
+            color: #0066cc;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            animation: fadeInUp 1s ease 0.4s backwards;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 2rem;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #0066cc;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 4rem;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,102,204,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,102,204,0.2);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h3 {
+            color: #0066cc;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .stats {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 80px 2rem;
+            text-align: center;
+        }
+
+        .stats-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+        }
+
+        .stat-item {
+            padding: 2rem;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #0066cc;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            color: #666;
+        }
+
+        .importance {
+            background: white;
+        }
+
+        .importance-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .importance-item {
+            padding: 2rem;
+            border-left: 4px solid #0066cc;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+
+        .importance-item h3 {
+            color: #0066cc;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, #0066cc 0%, #004999 100%);
+            color: white;
+            text-align: center;
+            padding: 80px 2rem;
+        }
+
+        .cta-section h2 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        footer {
+            background: #1a1a1a;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">DevClick</div>
+            <ul class="nav-links">
+                <li><a href="#home">Início</a></li>
+                <li><a href="#servicos">Serviços</a></li>
+                <li><a href="#importancia">Por Que Ter um Site</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <h1>Transforme Sua Presença Digital</h1>
+        <p>Criamos sites profissionais que convertem visitantes em clientes</p>
+        <a href="#contato" class="cta-button">Solicite um Orçamento</a>
+    </section>
+
+    <section id="servicos">
+        <h2>Nossos Serviços</h2>
+        <p class="section-subtitle">Soluções completas para sua presença online</p>
+        <div class="features">
+            <div class="feature-card">
+                <div class="feature-icon">🎨</div>
+                <h3>Design Profissional</h3>
+                <p>Layouts modernos e responsivos que impressionam e convertem. Cada pixel pensado para destacar sua marca no mercado digital.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">⚡</div>
+                <h3>Performance Otimizada</h3>
+                <p>Sites rápidos e otimizados para SEO. Carregamento veloz que mantém seus visitantes engajados e melhora seu ranking no Google.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📱</div>
+                <h3>Totalmente Responsivo</h3>
+                <p>Perfeito em qualquer dispositivo. Seu site funcionará impecavelmente em smartphones, tablets e desktops.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🔒</div>
+                <h3>Segurança Garantida</h3>
+                <p>Proteção completa para você e seus clientes. Implementamos as melhores práticas de segurança web.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🚀</div>
+                <h3>Manutenção e Suporte</h3>
+                <p>Suporte contínuo após a entrega. Estamos aqui para garantir que seu site esteja sempre atualizado e funcionando perfeitamente.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">💼</div>
+                <h3>Soluções Personalizadas</h3>
+                <p>Cada negócio é único. Desenvolvemos soluções sob medida que atendem exatamente às suas necessidades.</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="stats">
+        <h2 style="color: #0066cc; margin-bottom: 3rem;">Números Que Falam Por Si</h2>
+        <div class="stats-container">
+            <div class="stat-item">
+                <div class="stat-number">97%</div>
+                <div class="stat-label">dos consumidores pesquisam online antes de comprar</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">75%</div>
+                <div class="stat-label">julgam a credibilidade pela qualidade do site</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">24/7</div>
+                <div class="stat-label">seu negócio aberto o tempo todo</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">100%</div>
+                <div class="stat-label">de comprometimento com seu sucesso</div>
+            </div>
+        </div>
+    </div>
+
+    <section id="importancia" class="importance">
+        <h2>Por Que Sua Empresa Precisa de um Site?</h2>
+        <p class="section-subtitle">No mundo digital de hoje, estar online não é mais opcional</p>
+        <div class="importance-content">
+            <div class="importance-item">
+                <h3>🌐 Visibilidade Global</h3>
+                <p>Alcance clientes em qualquer lugar do mundo. Seu site trabalha 24 horas por dia, 7 dias por semana, expandindo suas oportunidades de negócio infinitamente.</p>
+            </div>
+            <div class="importance-item">
+                <h3>💪 Credibilidade</h3>
+                <p>Empresas sem presença online perdem credibilidade. Um site profissional transmite confiança e mostra que seu negócio é sério e estabelecido.</p>
+            </div>
+            <div class="importance-item">
+                <h3>💰 Mais Vendas</h3>
+                <p>Um site bem construído é sua melhor ferramenta de vendas. Apresente seus produtos e serviços de forma atrativa e converta visitantes em clientes.</p>
+            </div>
+            <div class="importance-item">
+                <h3>📊 Competitividade</h3>
+                <p>Seus concorrentes já estão online. Não fique para trás! Um site profissional coloca você no mesmo nível ou à frente da concorrência.</p>
+            </div>
+            <div class="importance-item">
+                <h3>🎯 Marketing Digital</h3>
+                <p>Seu site é a base de toda estratégia de marketing digital. Ele centraliza suas redes sociais, campanhas e conteúdos em um único lugar profissional.</p>
+            </div>
+            <div class="importance-item">
+                <h3>📈 Crescimento Contínuo</h3>
+                <p>Acompanhe métricas, entenda seu público e tome decisões baseadas em dados reais. Seu site fornece insights valiosos para o crescimento do negócio.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contato" class="cta-section">
+        <h2>Pronto Para Decolar no Digital?</h2>
+        <p>Vamos criar juntos o site que seu negócio merece!</p>
+        <p style="font-size: 1.1rem; margin-bottom: 2rem;">Entre em contato hoje mesmo e receba uma consultoria gratuita.<br>Descubra como um site profissional pode transformar seu negócio.</p>
+        <a href="mailto:contato@devclick.com.br" class="cta-button">Entre em Contato Agora</a>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 DevClick - Agência de Criação de Sites. Todos os direitos reservados.</p>
+        <p style="margin-top: 1rem; opacity: 0.8;">Transformando ideias em experiências digitais memoráveis.</p>
+    </footer>
+</body>
+</html>
